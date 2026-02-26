@@ -1,0 +1,482 @@
+/* ── CSS DƏYİŞƏNLƏR ── */
+:root {
+  --card-bg: rgba(255,255,255,0.08);
+  --card-border: rgba(255,255,255,0.15);
+  --netice-bg: rgba(255,255,255,0.1);
+  --netice-border: rgba(255,255,255,0.2);
+  --text-main: #fff;
+  --text-soft: rgba(255,255,255,0.6);
+  --text-muted: rgba(255,255,255,0.4);
+  --xett: rgba(255,255,255,0.2);
+  --slider-bg: rgba(255,255,255,0.2);
+  --tab-bg: rgba(255,255,255,0.1);
+  --tab-border: rgba(255,255,255,0.2);
+  --toggle-bg: rgba(255,255,255,0.1);
+  --circle-border: rgba(255,255,255,0.3);
+  --circle-color: rgba(255,255,255,0.6);
+  --mod-btn-bg: rgba(255,255,255,0.1);
+  --mod-btn-border: rgba(255,255,255,0.2);
+  --mod-btn-color: #fff;
+  --active-text: #302b63;
+}
+
+body.light {
+  --card-bg: rgba(255,255,255,0.85);
+  --card-border: rgba(100,100,200,0.15);
+  --netice-bg: rgba(255,255,255,0.95);
+  --netice-border: rgba(100,100,200,0.2);
+  --text-main: #1a1a3e;
+  --text-soft: rgba(30,30,80,0.55);
+  --text-muted: rgba(30,30,80,0.35);
+  --xett: rgba(100,100,200,0.15);
+  --slider-bg: rgba(100,100,200,0.2);
+  --tab-bg: rgba(255,255,255,0.6);
+  --tab-border: rgba(100,100,200,0.2);
+  --toggle-bg: rgba(100,100,200,0.1);
+  --circle-border: rgba(100,100,200,0.25);
+  --circle-color: rgba(30,30,80,0.55);
+  --mod-btn-bg: rgba(255,255,255,0.7);
+  --mod-btn-border: rgba(100,100,200,0.2);
+  --mod-btn-color: #1a1a3e;
+  --active-text: #fff;
+}
+
+/* ── RESET ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── BODY ── */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #f0f4ff, #e8eeff, #f5f0ff);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.light::before {
+  opacity: 1;
+}
+
+/* ── CONTAINER ── */
+#container {
+  width: 92%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* ── MOD DÜYMƏSİ ── */
+#mod-dugme {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+
+#tema-btn {
+  background: var(--mod-btn-bg);
+  border: 1px solid var(--mod-btn-border);
+  color: var(--mod-btn-color);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+#tema-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ── BAŞLIQ ── */
+#container > h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 1px;
+  transition: color 0.5s ease;
+}
+
+/* ── TABS ── */
+#abbhead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#abbhead button {
+  padding: 8px 16px;
+  background: var(--tab-bg);
+  color: var(--text-main);
+  border: 1px solid var(--tab-border);
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.5s ease;
+}
+
+#abbhead button.active {
+  background: var(--text-main);
+  color: var(--active-text);
+  font-weight: 600;
+  border-color: var(--text-main);
+}
+
+body.light #abbhead button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ── MAIN ── */
+#abbmain {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ── LEFT ── */
+#abbleft {
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  padding: 25px;
+  transition: all 0.5s ease;
+}
+
+/* ── RIGHT ── */
+#abbright {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* ── BAŞLIQ SƏTIR ── */
+.baslig {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.baslig-2 {
+  margin-top: 20px;
+}
+
+.baslig span:first-child {
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.5s ease;
+}
+
+/* ── DƏYƏR MƏTNLƏRİ ── */
+#mebleg-deger, #muddet-deger, #faiz-deger,
+#dep-mebleg-deger,
+#avto-qiymet-deger, #avto-ilkin-deger, #avto-muddet-deger,
+#ipo-mebleg-deger, #ipo-muddet-deger {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color 0.5s ease;
+}
+
+/* ── SUFFIX ── */
+#mebleg-deger::after      { content: " ₼"; }
+#muddet-deger::after      { content: " ay"; }
+#faiz-deger::after        { content: " %"; }
+#avto-qiymet-deger::after { content: " ₼"; }
+#avto-ilkin-deger::after  { content: " %"; }
+#avto-muddet-deger::after { content: " ay"; }
+#ipo-mebleg-deger::after  { content: " ₼"; }
+#ipo-muddet-deger::after  { content: " il"; }
+
+/* ── SLIDER ── */
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--slider-bg);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.5s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text-main);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background 0.5s ease;
+}
+
+/* ── MIN MAX ── */
+.minmax {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minmax span {
+  color: var(--text-muted);
+  font-size: 11px;
+  transition: color 0.5s ease;
+}
+
+/* ── NƏTİCƏ QUTULAR ── */
+#kredit-netice,
+#depozit-netice,
+#avtokredit-netice,
+#ipoteka-netice {
+  background: var(--netice-bg);
+  border-radius: 20px;
+  border: 1px solid var(--netice-border);
+  padding: 25px;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.netice-baslig {
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  transition: color 0.5s ease;
+}
+
+.netice-deger {
+  color: var(--text-main);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  transition: color 0.5s ease;
+}
+
+.netice-xett {
+  border: none;
+  border-top: 1px solid var(--xett);
+  margin: 15px 0;
+  transition: border-color 0.5s ease;
+}
+
+.netice-ikili {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.netice-alt-baslig {
+  color: var(--text-soft);
+  font-size: 11px;
+  margin-bottom: 5px;
+  transition: color 0.5s ease;
+}
+
+.netice-alt-deger {
+  color: var(--text-main);
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: color 0.5s ease;
+}
+
+/* ── DAVAM ET ── */
+.davam-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.davam-btn:hover {
+  opacity: 0.85;
+}
+
+.ilkin-hesablama {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 8px;
+  transition: color 0.5s ease;
+}
+
+/* ── DEPOZİT ── */
+.dep-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dep-toggle {
+  display: flex;
+  background: var(--toggle-bg);
+  border-radius: 25px;
+  padding: 4px;
+  gap: 4px;
+  transition: background 0.5s ease;
+}
+
+.dep-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-soft);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.dep-btn.active {
+  background: var(--text-main);
+  color: var(--active-text);
+  font-weight: 600;
+}
+
+/* ── MÜDDƏT DAİRƏLƏR ── */
+.dep-muddet {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.dep-ay-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--circle-border);
+  background: transparent;
+  color: var(--circle-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.dep-ay-btn.active {
+  background: var(--text-main);
+  color: var(--active-text);
+  font-weight: 600;
+  border-color: var(--text-main);
+}
+
+/* ── AVTOKREDIT ── */
+.avto-nov {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.avto-nov-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--circle-border);
+  border-radius: 25px;
+  background: transparent;
+  color: var(--circle-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.avto-nov-btn.active {
+  background: var(--text-main);
+  color: var(--active-text);
+  font-weight: 600;
+  border-color: var(--text-main);
+}
+
+/* ── İPOTEKA ── */
+.ipo-faiz-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.ipo-faiz-btn {
+  padding: 8px 14px;
+  border-radius: 25px;
+  border: 1px solid var(--circle-border);
+  background: transparent;
+  color: var(--circle-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.ipo-faiz-btn.active {
+  background: var(--text-main);
+  color: var(--active-text);
+  font-weight: 600;
+  border-color: var(--text-main);
+}
+
+/* ── TABLET ── */
+@media (min-width: 600px) {
+  #container > h1 { font-size: 1.6rem; }
+
+  #abbhead button { padding: 10px 20px; font-size: 14px; }
+
+  #mebleg-deger, #muddet-deger, #faiz-deger,
+  #dep-mebleg-deger,
+  #avto-qiymet-deger, #avto-ilkin-deger, #avto-muddet-deger,
+  #ipo-mebleg-deger, #ipo-muddet-deger { font-size: 1.2rem; }
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 1024px) {
+  #container { width: 80%; padding: 30px 0; }
+  #container > h1 { font-size: 2rem; padding: 30px 0; }
+
+  #abbmain { flex-direction: row; align-items: stretch; gap: 20px; }
+  #abbleft { width: 58%; }
+  #abbright { width: 40%; }
+
+  #mebleg-deger, #muddet-deger, #faiz-deger,
+  #dep-mebleg-deger,
+  #avto-qiymet-deger, #avto-ilkin-deger, #avto-muddet-deger,
+  #ipo-mebleg-deger, #ipo-muddet-deger { font-size: 1.4rem; }
+
+  .netice-deger { font-size: 3.5rem; }
+}

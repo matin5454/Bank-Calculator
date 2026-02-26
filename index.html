@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BANK</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  </head>
+  <body>
+    <div id="container">
+      <div id="mod-dugme">
+        <button id="tema-btn">🌙</button>
+      </div>
+      <h1 style="text-align: center; padding: 20px 0">Indi Hesablayin</h1>
+      <div id="abbhead">
+        <button class="active" id="btn1">Kredit</button>
+        <button id="btn2">Depozit</button>
+        <button id="btn3">Avtomobil Krediti</button>
+        <button id="btn4">Ipoteka</button>
+      </div>
+      <div id="abbmain">
+        <div id="abbleft">
+
+          <!-- KREDİT -->
+          <div id="kredit">
+            <div class="baslig">
+              <span>Məbləğ</span>
+              <span id="mebleg-deger">10000</span>
+            </div>
+            <input type="range" id="mebleg-slider" min="300" max="50000" value="10000" />
+            <div class="minmax"><span>300 ₼</span><span>50000 ₼</span></div>
+
+            <div class="baslig baslig-2">
+              <span>Müddət</span>
+              <span id="muddet-deger">12</span>
+            </div>
+            <input type="range" id="muddet-slider" min="3" max="59" value="12" />
+            <div class="minmax"><span>3 ay</span><span>59 ay</span></div>
+
+            <div class="baslig baslig-2">
+              <span>Faiz dərəcəsi</span>
+              <span id="faiz-deger">12</span>
+            </div>
+            <input type="range" id="faiz-slider" min="1" max="37.7" value="12" step="0.1" />
+            <div class="minmax"><span>1%</span><span>37.7%</span></div>
+          </div>
+
+          <!-- DEPOZİT -->
+          <div id="depozit" style="display:none">
+            <div class="dep-controls">
+              <div class="dep-toggle">
+                <button class="dep-btn active" id="dep-her-ay">Hər ay</button>
+                <button class="dep-btn" id="dep-her-il">Hər il</button>
+              </div>
+              <div class="dep-toggle">
+                <button class="dep-btn active" id="dep-azn">AZN</button>
+                <button class="dep-btn" id="dep-usd">USD</button>
+              </div>
+            </div>
+            <div class="baslig baslig-2">
+              <span>Məbləğ</span>
+              <span id="dep-mebleg-deger">10000</span>
+            </div>
+            <input type="range" id="dep-mebleg-slider" min="300" max="3000000" value="10000" step="100" />
+            <div class="minmax"><span>300 ₼</span><span>3 000 000 ₼</span></div>
+            <div class="baslig baslig-2"><span>Müddət</span></div>
+            <div class="dep-muddet" id="dep-muddet-group"></div>
+          </div>
+
+          <!-- AVTOKREDIT -->
+          <div id="avtokredit" style="display:none">
+            <div class="avto-nov">
+              <button class="avto-nov-btn active" data-faiz="14">Elektrik</button>
+              <button class="avto-nov-btn" data-faiz="14.5">Hibrid</button>
+              <button class="avto-nov-btn" data-faiz="15">Digər</button>
+            </div>
+            <div class="baslig baslig-2">
+              <span>Avtomobilin qiyməti</span>
+              <span id="avto-qiymet-deger">50000</span>
+            </div>
+            <input type="range" id="avto-qiymet-slider" min="300" max="500000" value="50000" step="100" />
+            <div class="minmax"><span>300 ₼</span><span>500 000 ₼</span></div>
+
+            <div class="baslig baslig-2">
+              <span>İlkin ödəniş faizi</span>
+              <span id="avto-ilkin-deger">40</span>
+            </div>
+            <input type="range" id="avto-ilkin-slider" min="10" max="90" value="40" step="1" />
+            <div class="minmax"><span>10 %</span><span>90 %</span></div>
+
+            <div class="baslig baslig-2">
+              <span>Kredit müddəti</span>
+              <span id="avto-muddet-deger">24</span>
+            </div>
+            <input type="range" id="avto-muddet-slider" min="3" max="60" value="24" step="1" />
+            <div class="minmax"><span>3 ay</span><span>60 ay</span></div>
+          </div>
+
+          <!-- İPOTEKA -->
+          <div id="ipoteka" style="display:none">
+            <div class="baslig">
+              <span>Kredit məbləği</span>
+              <span id="ipo-mebleg-deger">50000</span>
+            </div>
+            <input type="range" id="ipo-mebleg-slider" min="1000" max="500000" value="50000" step="500" />
+            <div class="minmax"><span>1 000 ₼</span><span>500 000 ₼</span></div>
+
+            <div class="baslig baslig-2">
+              <span>Müddət</span>
+              <span id="ipo-muddet-deger">10</span>
+            </div>
+            <input type="range" id="ipo-muddet-slider" min="1" max="25" value="10" step="1" />
+            <div class="minmax"><span>1 il</span><span>25 il</span></div>
+
+            <div class="baslig baslig-2"><span>İllik faiz dərəcəsi</span></div>
+            <div class="ipo-faiz-group">
+              <button class="ipo-faiz-btn" data-faiz="4">4%</button>
+              <button class="ipo-faiz-btn active" data-faiz="7">7%</button>
+              <button class="ipo-faiz-btn" data-faiz="8">8%</button>
+              <button class="ipo-faiz-btn" data-faiz="11">11%</button>
+              <button class="ipo-faiz-btn" data-faiz="12">12%</button>
+              <button class="ipo-faiz-btn" data-faiz="13">13%</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- NƏTİCƏLƏR -->
+        <div id="abbright">
+
+          <div id="kredit-netice">
+            <p class="netice-baslig">Aylıq kredit ödənişi</p>
+            <p class="netice-deger" id="kredit-netice-deger">0.00 ₼</p>
+            <button class="davam-btn">Davam et</button>
+            <p class="ilkin-hesablama">İlkin hesablama</p>
+          </div>
+
+          <div id="depozit-netice" style="display:none">
+            <p class="netice-baslig">Ümumi qazanc</p>
+            <p class="netice-deger" id="dep-umumi-deger">0.00 ₼</p>
+            <hr class="netice-xett" />
+            <div class="netice-ikili">
+              <div>
+                <p class="netice-alt-baslig">Hər ay ödənilən faiz</p>
+                <p class="netice-alt-deger" id="dep-aylik-faiz">0.00 ₼</p>
+              </div>
+              <div>
+                <p class="netice-alt-baslig">Faiz dərəcəsi</p>
+                <p class="netice-alt-deger" id="dep-faiz-derece">0 %</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="avtokredit-netice" style="display:none">
+            <p class="netice-baslig">Aylıq kredit ödənişi</p>
+            <p class="netice-deger" id="avto-aylik-deger">0.00 ₼</p>
+            <hr class="netice-xett" />
+            <div class="netice-ikili">
+              <div>
+                <p class="netice-alt-baslig">Kredit məbləği</p>
+                <p class="netice-alt-deger" id="avto-kredit-mebleg">0 ₼</p>
+              </div>
+              <div>
+                <p class="netice-alt-baslig">İllik faiz dərəcəsi</p>
+                <p class="netice-alt-deger" id="avto-faiz-derece">14 %</p>
+              </div>
+            </div>
+            <div class="netice-ikili" style="margin-top:15px">
+              <div>
+                <p class="netice-alt-baslig">Komissiya (0.5%, min 20 AZN)</p>
+                <p class="netice-alt-deger" id="avto-komissiya">0 ₼</p>
+              </div>
+              <div>
+                <p class="netice-alt-baslig">Ümumi ödəniş</p>
+                <p class="netice-alt-deger" id="avto-umumi">0.00 ₼</p>
+              </div>
+            </div>
+            <button class="davam-btn" style="margin-top:20px">Davam et</button>
+            <p class="ilkin-hesablama">İlkin hesablama</p>
+          </div>
+
+          <div id="ipoteka-netice" style="display:none">
+            <p class="netice-baslig">Aylıq kredit ödənişi</p>
+            <p class="netice-deger" id="ipo-aylik-deger">0.00 ₼</p>
+            <hr class="netice-xett" />
+            <div class="netice-ikili">
+              <div>
+                <p class="netice-alt-baslig">Kredit məbləği</p>
+                <p class="netice-alt-deger" id="ipo-kredit-mebleg">0 ₼</p>
+              </div>
+              <div>
+                <p class="netice-alt-baslig">İllik faiz dərəcəsi</p>
+                <p class="netice-alt-deger" id="ipo-faiz-derece">7 %</p>
+              </div>
+            </div>
+            <button class="davam-btn" style="margin-top:20px">Davam et</button>
+            <p class="ilkin-hesablama">İlkin hesablama</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
